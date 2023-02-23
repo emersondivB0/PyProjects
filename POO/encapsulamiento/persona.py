@@ -7,7 +7,7 @@ class Persona:
         self.__nombre = nombre
         self.__edad = edad
 
-    def _metodo_privado(self):
+    def __metodo_privado(self):
         print("Soy un mérodo privado")
 
     def getName(self):
