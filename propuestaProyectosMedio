@@ -1,0 +1,54 @@
+5 propuestas de proyectos en Python que te ayudarán 
+a desarrollar tus habilidades en los temas que 
+mencionaste:
+
+Sistema de gestión de tareas con base de datos: 
+Crea un programa que permita a los usuarios crear y 
+administrar tareas, almacenándolas en una base de 
+datos. Debe permitir la asignación de tareas, 
+fechas de vencimiento, y permitir marcar tareas 
+como completadas o en progreso. Esto te permitirá 
+utilizar tus habilidades en programación orientada 
+a objetos, manejo de bases de datos y manejo de 
+fechas y tiempo.
+
+Análisis de datos en archivos CSV y JSON: Crea un 
+programa que pueda leer archivos CSV y JSON y 
+realizar análisis de datos básicos. Por ejemplo, 
+puedes leer un archivo de ventas y calcular la 
+cantidad total de ventas, el promedio de ventas por 
+mes, y el mes con mayor cantidad de ventas. Esto te 
+permitirá utilizar tus habilidades en manejo de 
+archivos, manejo de datos en formato CSV y JSON y 
+programación funcional.
+
+Generador de contraseñas seguras: Crea un programa 
+que genere contraseñas seguras para los usuarios. 
+El programa debe utilizar expresiones regulares 
+para validar la complejidad de las contraseñas y 
+almacenarlas en una base de datos. Esto te 
+permitirá utilizar tus habilidades en programación 
+orientada a objetos, manejo de bases de datos y 
+expresiones regulares.
+
+Aplicación web asíncrona: Crea una aplicación web 
+asíncrona que permita a los usuarios enviar y 
+recibir mensajes en tiempo real. La aplicación debe 
+utilizar programación asíncrona para mejorar el 
+rendimiento y la escalabilidad. Esto te permitirá 
+utilizar tus habilidades en programación asíncrona 
+y manejo de bases de datos no relacionales.
+
+Sistema de gestión de biblioteca: Crea un sistema 
+que permita a los usuarios buscar y reservar libros 
+en una biblioteca. El programa debe utilizar una 
+base de datos para almacenar información sobre los 
+libros y los usuarios, y debe permitir a los 
+usuarios reservar libros, devolverlos y ver su 
+historial de préstamos. Esto te permitirá utilizar 
+tus habilidades en programación orientada a objetos 
+y manejo de bases de datos relacionales. Además, 
+puedes utilizar decoradores para agregar 
+funcionalidades adicionales a la aplicación y 
+pruebas unitarias e integración para asegurarte de 
+que todo funcione correctamente.

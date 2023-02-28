@@ -1,0 +1,41 @@
+Conecta tu programa a una base de datos para almacenar las contraseñas generadas.
+
+En primer lugar, debes seleccionar una base de datos que sea compatible con Python y que sea segura. Algunas opciones populares incluyen MySQL, PostgreSQL y SQLite. Luego, debes instalar el conector de base de datos correspondiente para Python. Por ejemplo, si estás utilizando MySQL, puedes instalar el paquete mysql-connector-python utilizando pip:
+
+pip install mysql-connector-python
+
+
+Una vez que hayas instalado el conector de la base de datos, puedes conectarte a la base de datos utilizando las credenciales correspondientes. Aquí hay un ejemplo de cómo conectarse a una base de datos MySQL:
+
+import mysql.connector
+
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="username",
+  password="password",
+  database="mydatabase"
+)
+
+mycursor = mydb.cursor()
+
+
+Una vez que hayas establecido una conexión exitosa, puedes crear una tabla para almacenar las contraseñas generadas. Puedes incluir campos como id, username, password y date_created. Aquí hay un ejemplo de cómo crear una tabla en MySQL:
+
+mycursor.execute("CREATE TABLE passwords (id INT AUTO_INCREMENT PRIMARY KEY, username VARCHAR(255), password VARCHAR(255), date_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP)")
+
+Por último, asegúrate de encriptar las contraseñas antes de almacenarlas en la base de datos para proteger la privacidad del usuario. Puedes utilizar un algoritmo de hash seguro, como SHA-256, para hacer esto. Aquí hay un ejemplo de cómo encriptar una contraseña utilizando la biblioteca hashlib:
+
+import hashlib
+
+password = "my_password"
+hashed_password = hashlib.sha256(password.encode()).hexdigest()
+
+
+Una vez que hayas encriptado la contraseña, puedes insertarla en la tabla utilizando una consulta SQL INSERT:
+
+sql = "INSERT INTO passwords (username, password) VALUES (%s, %s)"
+val = ("my_username", hashed_password)
+mycursor.execute(sql, val)
+
+mydb.commit()
+

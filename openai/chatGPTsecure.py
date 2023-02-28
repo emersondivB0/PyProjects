@@ -1,9 +1,5 @@
 import openai
-<<<<<<< HEAD
-openai.api_key = "openapi-key-here"
-=======
-openai.api_key = "key"
->>>>>>> e99ef44 (Nuevo prpyecto nibel inyermedio, modificación chat)
+openai.api_key = "API key here"
 
 """
 while True:

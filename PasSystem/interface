@@ -1,0 +1,57 @@
+Implementa una interfaz de usuario para que el usuario pueda solicitar una contraseña segura.
+Una vez que hayas generado una contraseña segura y la hayas almacenado en la base de datos, puedes permitir que los usuarios soliciten contraseñas seguras a través de una interfaz de usuario. Puedes hacer esto a través de una interfaz gráfica o de línea de comandos.
+
+En una interfaz de línea de comandos, puedes pedirle al usuario que ingrese la longitud de la contraseña y otros criterios de seguridad, como mayúsculas, minúsculas, números y caracteres especiales. Luego, puedes generar una contraseña segura utilizando el código que escribiste anteriormente y mostrarla en la pantalla. Aquí hay un ejemplo de cómo solicitar la longitud de la contraseña y generar una contraseña segura en una interfaz de línea de comandos:
+
+import random
+import string
+
+def generate_password(length):
+    characters = string.ascii_letters + string.digits + string.punctuation
+    password = ''.join(random.choice(characters) for i in range(length))
+    return password
+
+length = int(input("Ingrese la longitud de la contraseña
+
+-----------------------------------------------------------
+
+Con interfaz gráfica:
+
+Para crear la ventana principal de la interfaz gráfica, debes utilizar la clase Tk de Tkinter. A continuación, debes definir las características principales de la ventana, como su tamaño y título. Para hacerlo, puedes utilizar el siguiente código:
+
+ventana = tk.Tk()
+ventana.title("Generador de contraseñas seguras")
+ventana.geometry("400x400")
+
+
+Este código creará una ventana con el título "Generador de contraseñas seguras" y un tamaño de 400x400 píxeles.
+
+Paso 3: Crear los elementos de la interfaz gráfica
+Ahora es momento de crear los elementos que se mostrarán en la interfaz gráfica, como etiquetas, botones, cuadros de texto, etc. En este caso, lo más común es crear un botón que el usuario pueda presionar para solicitar una contraseña segura. Para hacerlo, puedes utilizar el siguiente código:
+
+boton_generar = tk.Button(ventana, text="Generar contraseña", command=generar_contrasena)
+boton_generar.pack()
+
+
+Este código creará un botón con el texto "Generar contraseña" y la función "generar_contrasena" como comando. Esta función aún no la hemos definido, pero la explicaremos en el siguiente paso.
+
+Paso 4: Definir la función para generar la contraseña
+Ahora es momento de definir la función que se ejecutará cuando el usuario presione el botón "Generar contraseña". Esta función debe generar una contraseña segura y mostrarla en la interfaz gráfica. A continuación, te muestro un ejemplo de cómo puedes definir esta función:
+
+def generar_contrasena():
+    # Aquí va el código para generar la contraseña segura
+    contrasena = "hY7*%f23Sd" # Este es un ejemplo de contraseña segura
+    
+    # Mostrar la contraseña en la interfaz gráfica
+    etiqueta_contrasena.config(text=contrasena)
+
+
+Esta función genera una contraseña segura y la muestra en una etiqueta que debe ser creada previamente. En este ejemplo, la contraseña generada es "hY7*%f23Sd", pero en tu programa deberás utilizar un algoritmo para generar una contraseña segura.
+
+Paso 5: Ejecutar el bucle principal de la interfaz gráfica
+Finalmente, para que la interfaz gráfica se muestre en la pantalla y se pueda interactuar con ella, debes ejecutar el bucle principal de la interfaz gráfica. Para hacerlo, simplemente utiliza el siguiente código:
+
+ventana.mainloop()
+
+ejcuta bucle peincipal
+
