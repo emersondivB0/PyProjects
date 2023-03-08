@@ -26,4 +26,5 @@ plt.legend()
 
 # Guarda la imagen como un archivo PNG
 plt.savefig('Ejemplo.png')
+plt.show()
 

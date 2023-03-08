@@ -1,3 +1,6 @@
+"""
+Prueba genérica de numpy y matplotlib
+"""
 import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
