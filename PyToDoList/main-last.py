@@ -1,13 +1,18 @@
-import mysql.connector
+import sqlite3
 from datetime import datetime
 import tkinter as tk
 from tkinter import messagebox
 
 # Conexión a la base de datos
-cnx = mysql.connector.connect(host="%",
-                              user="emerson",
-                              password="database",
-                              database="todo_list_py")
+conn = sqlite3.connect('todo_list_py.db')
+
+# Creación de la tabla
+conn.execute('''CREATE TABLE IF NOT EXISTS tareas
+                (id INTEGER PRIMARY KEY AUTOINCREMENT,
+                descripcion TEXT NOT NULL,
+                fecha_vencimiento DATE NOT NULL,
+                completada INTEGER NOT NULL DEFAULT 0);''')
+
 
 # Funciones para manejar las tareas
 def agregar_tarea():
@@ -20,11 +25,11 @@ def agregar_tarea():
         messagebox.showerror("Error",
                              "Formato de fecha incorrecto (DD/MM/AAAA)")
         return
-    cursor = cnx.cursor()
-    query = "INSERT INTO tareas (descripcion, fecha_vencimiento) VALUES (%s, %s)"
+    cursor = conn.cursor()
+    query = "INSERT INTO tareas (descripcion, fecha_vencimiento) VALUES (?, ?)"
     values = (descripcion, fecha_vencimiento)
     cursor.execute(query, values)
-    cnx.commit()
+    conn.commit()
     cursor.close()
     messagebox.showinfo("Éxito", "La tarea ha sido agregada exitosamente.")
     entry_descripcion.delete(0, tk.END)
@@ -32,13 +37,13 @@ def agregar_tarea():
 
 
 def mostrar_tareas():
-    cursor = cnx.cursor()
+    cursor = conn.cursor()
     query = "SELECT id, descripcion, fecha_vencimiento, completada FROM tareas"
     cursor.execute(query)
     tareas = cursor.fetchall()
     tarea_text = ""
     for tarea in tareas:
-        tarea_text += f"{tarea[0]} - {tarea[1]} - {tarea[2].strftime('%d/%m/%Y')} - {'Completada' if tarea[3] else 'En progreso'}\n"
+        tarea_text += f"{tarea[0]} - {tarea[1]} - {tarea[2]} - {'Completada' if tarea[3] else 'En progreso'}\n"
     if tarea_text == "":
         tarea_text = "No hay tareas para mostrar."
     messagebox.showinfo("Tareas", tarea_text)
@@ -48,11 +53,11 @@ def mostrar_tareas():
 def actualizar_tarea():
     tarea_id = entry_tarea_id.get()
     completada = checkbutton_completada.get()
-    cursor = cnx.cursor()
-    query = "UPDATE tareas SET completada = %s WHERE id = %s"
+    cursor = conn.cursor()
+    query = "UPDATE tareas SET completada = ? WHERE id = ?"
     values = (completada, tarea_id)
     cursor.execute(query, values)
-    cnx.commit()
+    conn.commit()
     cursor.close()
     messagebox.showinfo("Éxito", "La tarea ha sido actualizada exitosamente.")
     entry_tarea_id.delete(0, tk.END)
@@ -61,11 +66,11 @@ def actualizar_tarea():
 
 def eliminar_tarea():
     tarea_id = entry_tarea_id.get()
-    cursor = cnx.cursor()
-    query = "DELETE FROM tareas WHERE id = %s"
+    cursor = conn.cursor()
+    query = "DELETE FROM tareas WHERE id = ?"
     values = (tarea_id, )
     cursor.execute(query, values)
-    cnx.commit()
+    conn.commit()
     cursor.close()
     messagebox.showinfo("Éxito", "La tarea ha sido eliminada exitosamente.")
     entry_tarea_id.delete(0, tk.END)

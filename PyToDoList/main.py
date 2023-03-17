@@ -36,6 +36,7 @@ def agregar_tarea():
     entry_fecha_vencimiento.delete(0, tk.END)
 
 
+
 def mostrar_tareas():
     cursor = conn.cursor()
     query = "SELECT id, descripcion, fecha_vencimiento, completada FROM tareas"
@@ -77,10 +78,18 @@ def eliminar_tarea():
     checkbutton_completada.set(False)
 
 
+def actualizar_listbox_tareas():
+    tareas = mostrar_tareas()
+    listbox_tareas.delete(0, tk.END)
+    for tarea in tareas:
+        tarea_str = f"{tarea[0]} - {tarea[1]} - {tarea[2]} - {tarea[3]}"
+        listbox_tareas.insert(tk.END, tarea_str)
+
+
+
 """
 Interfaz gráfica
 """
-
 # Creación de la ventana principal
 root = tk.Tk()
 root.title("Sistema de gestión de tareas")
@@ -127,5 +136,10 @@ button_mostrar_tareas = tk.Button(root,
                                   text="Mostrar tareas",
                                   command=mostrar_tareas)
 button_mostrar_tareas.grid(row=6, column=0, columnspan=2)
+
+# Listbox para mostrar las tareas
+listbox_tareas = tk.Listbox(root)
+listbox_tareas.grid(row=0, column=2, rowspan=7)
+
 
 root.mainloop()
