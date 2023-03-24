@@ -9,8 +9,9 @@ matplotlib.rcParams.update({'font.size': 21})
 ax = plt.gca()
 
 ax2 = ax.twinx()
-for i in range(10):
-    ax.bar(i, np.random.randint(1000))
+for i in range(100):
+    ax.bar(i, np.random.randint(10000))
 
 plt.ylabel('Datos')
-plt.savefig("Ejemplo1.jpg")
+plt.savefig("Ejemplo2.jpg")
+print("I did it")
