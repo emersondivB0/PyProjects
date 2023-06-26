@@ -1,10 +1,10 @@
-# Challenge ONE | Back End | Foro Alura 
+# Python Projects and Learning 
 
 <p align="center" >
      <img width="200" heigth="200" src="https://techlabkids.com/wp-content/uploads/2022/01/159-1595848_python-logo-png-transparent-background-python-logo-png.png">
 </p>
 
-### ¡Bienvenido al proyecto del desafío Foro Alura con Java y Spring! 
+### ¡Wellcome to Pyt! 
 
 
 ### Pasos principales:
