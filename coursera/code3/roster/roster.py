@@ -1,7 +1,7 @@
 import json
 import sqlite3
 
-conn = sqlite3.connect('rosterdb.sqlite')
+conn = sqlite3.connect('rosterexam.sqlite')
 cur = conn.cursor()
 
 # Do some setup
@@ -43,8 +43,9 @@ for entry in json_data:
 
     name = entry[0]
     title = entry[1]
+    role = entry[2]
 
-    print((name, title))
+    #print((name, title))
 
     cur.execute('''INSERT OR IGNORE INTO User (name)
         VALUES ( ? )''', ( name, ) )
@@ -57,7 +58,22 @@ for entry in json_data:
     course_id = cur.fetchone()[0]
 
     cur.execute('''INSERT OR REPLACE INTO Member
-        (user_id, course_id) VALUES ( ?, ? )''',
-        ( user_id, course_id ) )
+        (user_id, course_id, role) VALUES ( ?, ?, ? )''',
+        ( user_id, course_id, role ) )
 
-    conn.commit()
+conn.commit()
+conn.close()
+
+# Retrieve and print the top 10 organizations with highest counts
+conn = sqlite3.connect('rosterexam.sqlite')
+cur = conn.cursor()
+cur.execute('''SELECT 'XYZZY' || hex(User.name || Course.title || Member.role ) AS X FROM 
+    User JOIN Member JOIN Course 
+    ON User.id = Member.user_id AND Member.course_id = Course.id
+    ORDER BY X LIMIT 1;''')
+rows = cur.fetchall()
+#for row in rows:
+#    print(f'{row[0]}|{row[1]}')
+
+# Close the database connection
+conn.close()

@@ -39,7 +39,11 @@ conn.close()
 # Retrieve and print the top 10 organizations with highest counts
 conn = sqlite3.connect('email_counts.db')
 cur = conn.cursor()
-cur.execute('SELECT org, count FROM Counts ORDER BY count DESC LIMIT 10')
+cur.execute('''SELECT Track.title, Artist.name, Album.title, Genre.name
+            FROM Track JOIN Genre JOIN Album JOIN Artist
+            ON Track.genre_id=Genre.ID and Track.album_id=Album.id
+            AND Album.artist_id=Artist.id
+            ORDER BY Artist.name LIMIT 3''')
 rows = cur.fetchall()
 for row in rows:
     print(f'Organization: {row[0]}, Count: {row[1]}')
