@@ -4,7 +4,7 @@
      <img width="200" heigth="200" src="https://techlabkids.com/wp-content/uploads/2022/01/159-1595848_python-logo-png-transparent-background-python-logo-png.png">
 </p>
 
-### ¡Wellcome to Pyt! 
+### ¡Wellcome to Python Lab! 
 
 
 ### Pasos principales:
