@@ -122,6 +122,9 @@ checkbutton_completada = tk.BooleanVar()
 checkbutton_completada.set(False)
 checkbutton = tk.Checkbutton(root, variable=checkbutton_completada)
 checkbutton.grid(row=4, column=1)
+frame_botones = tk.Frame(root)
+frame_botones.grid(row=5, column=0, columnspan=2)
+
 button_actualizar_tarea = tk.Button(root,
                                     text="Actualizar tarea",
                                     command=actualizar_tarea)
